@@ -1,5 +1,5 @@
 # Add variable for rundeck version
-ARG RUNDECK_VERSION
+ARG RUNDECK_VERSION=0.0.0
 ENV VERSION=$RUNDECK_VERSION
 
 FROM rundeck:$VERSION

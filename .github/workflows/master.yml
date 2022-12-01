@@ -38,5 +38,5 @@ jobs:
           --platform linux/amd64 \
           --output=type=registry,push=true \
           --tag florian9931/rundeck-ansible:${{ matrix.RUNDECK_VERSION }} \
-          --build-arg RUNDECK_VERSION=${{ matrix.RUNDECK_VERSION }} \
+          --build-arg RUNDECK_VERSION="${{ matrix.RUNDECK_VERSION }}" \
           .
