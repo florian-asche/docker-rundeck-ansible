@@ -1,4 +1,7 @@
-FROM rundeck:${RUNDECK_VERSION}
+ARG RUNDECK_VERSION
+ENV RUNDECK_VERSION=$RUNDECK_VERSION
+
+FROM rundeck:$RUNDECK_VERSION
 LABEL name="rundeck-ansible"
 MAINTAINER Florian Asche "https://github.com/florian-asche"
 
