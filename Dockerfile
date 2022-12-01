@@ -1,5 +1,5 @@
 # Add variable for rundeck version
-ARG TAG=latest
+ARG RUNDECK_VERSION=latest
 
 FROM rundeck:${RUNDECK_VERSION}
 LABEL name="rundeck-ansible"
