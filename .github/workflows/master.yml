@@ -29,6 +29,9 @@ jobs:
     - name: Docker buildx available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
 
+    - name: Output Rundeck version
+      run: echo ${{ matrix.RUNDECK_VERSION }}
+
     - name: Run docker buildx build
       run: |
         docker buildx build \
