@@ -35,7 +35,7 @@ jobs:
     - name: Run docker buildx build
       run: |
         docker buildx build \
-          --platform linux/amd64,linux/arm/v7,linux/arm64 \
+          --platform linux/amd64 \
           --output=type=registry,push=true \
           --tag florian9931/rundeck-ansible:${{ matrix.RUNDECK_VERSION }} \
           --build-arg RUNDECK_VERSION=${{ matrix.RUNDECK_VERSION }} \
