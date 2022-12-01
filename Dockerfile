@@ -1,8 +1,7 @@
 # Add variable for rundeck version
-ARG RUNDECK_VERSION=0.0.0
-ENV VERSION=$RUNDECK_VERSION
+ARG TAG=latest
 
-FROM rundeck:$VERSION
+FROM rundeck:${RUNDECK_VERSION}
 LABEL name="rundeck-ansible"
 MAINTAINER Florian Asche "https://github.com/florian-asche"
 
