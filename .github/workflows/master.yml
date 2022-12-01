@@ -30,11 +30,10 @@ jobs:
       run: echo ${{ steps.buildx.outputs.platforms }}
 
     - name: Run docker buildx build
-      env:
-        RUNDECK_VERSION: ${{ matrix.RUNDECK_VERSION }}
       run: |
         docker buildx build \
           --platform linux/amd64,linux/arm/v7,linux/arm64 \
           --output=type=registry,push=true \
           --tag florian9931/ansible-ssh:${{ matrix.RUNDECK_VERSION }} \
+          --build-arg RUNDECK_VERSION=${{ matrix.RUNDECK_VERSION }} \
           .
