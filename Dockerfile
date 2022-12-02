@@ -2,6 +2,7 @@
 ARG RUNDECK_VERSION=latest
 
 FROM rundeck/rundeck:${RUNDECK_VERSION}
+
 LABEL name="rundeck-ansible"
 MAINTAINER Florian Asche "https://github.com/florian-asche"
 
@@ -28,18 +29,6 @@ RUN apt-get -y update && \
         nmap \
         sshpass \
         openssh-server
-
-# Setup the default user.
-RUN groupadd --gid 1500 ansible
-RUN useradd -rm -d /home/ansible -s /bin/bash -u 1500 -g ansible ansible
-RUN echo 'ansible:ansible' | chpasswd
-
-## Setup ssh directory
-RUN mkdir -p /home/ansible/.ssh/
-RUN chmod 700 /home/ansible/.ssh/
-#COPY files/authorized_keys /home/ansible/.ssh/
-#RUN chmod 700 /home/ansible/.ssh/authorized_keys
-RUN chown ansible:ansible -R /home/ansible
 
 # Install Ansible
 RUN apt remove ansible \
